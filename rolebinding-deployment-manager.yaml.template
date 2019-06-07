@@ -1,0 +1,14 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: deployment-manager-binding-MY_NAMESPACE-MY_USER
+  namespace: MY_NAMESPACE
+subjects:
+- kind: User
+  name: MY_USER
+  apiGroup: ""
+roleRef:
+  kind: Role
+  name: deployment-manager-MY_NAMESPACE-MY_USER
+  apiGroup: ""
+
