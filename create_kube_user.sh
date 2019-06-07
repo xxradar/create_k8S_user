@@ -22,7 +22,11 @@ cat role-deployment-manager.yaml.template  | sed "s/MY_NAMESPACE/$2/g" | sed "s/
 kubectl create -f role-deployment-manager.yaml
 cat rolebinding-deployment-manager.yaml.template  | sed "s/MY_NAMESPACE/$2/g" | sed "s/MY_USER/$1/g" >./rolebinding-deployment-manager.yaml
 kubectl create -f rolebinding-deployment-manager.yaml
-kubectl --context=$1-context run --image bitnami/dokuwiki mydokuwiki
+
+echo "####################################################################################"
+echo "### This can be ommited, just to test the user, namespace and role   ###############"
+echo "####################################################################################"
+kubectl --context=$1-context run --image docker.io/xxradar/naxsi5 myradarhack
 kubectl --context=$1-context get pods
 kubectl --context=$1-context get pods --namespace=$2
 
